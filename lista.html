@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaky Blinders BET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo2.css">
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Apostas - Peaky Blinders BET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div class="main-content">
+        <header class="topnav">
+            <nav>
+                <ul class="topnav-menu">
+                  
+                </ul>
+            </nav>
+            <section class="perfil"></section>
+        </header>
+
+        <main>
+            <section class="summary">
+                <h2>Lista de Apostas</h2>
+                <ul id="listaApostas">
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            // Verificar se há suporte para localStorage no navegador
+                            if (typeof Storage !== 'undefined') {
+                                // Recuperar os dados armazenados
+                                let apostas = JSON.parse(localStorage.getItem('apostas')) || [];
+                
+                                // Referência ao elemento da lista
+                                const listaApostas = document.getElementById('listaApostas');
+                
+                                // Exibir as apostas na lista
+                                apostas.forEach(function (aposta) {
+                                    const li = document.createElement('li');
+                                    li.textContent = `Nome: ${aposta.nome} | Time: ${aposta.time} | Valor:R$ ${aposta.valor} | Descrição: ${aposta.descricao || 'N/A'}`;
+                                    listaApostas.appendChild(li);
+                                });
+                            } else {
+                                alert('Seu navegador não suporta o recurso localStorage. Por favor, atualize para um navegador mais recente.');
+                            }
+                        });
+                    </script>                </ul>
+                <a href="index2.html" class="btn">Voltar</a>
+            </section>
+        </main>
+    </div>
+    <script src="scriptLista.js"></script>
+</body>
+
+</html>
